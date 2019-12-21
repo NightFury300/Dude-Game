@@ -28453,5 +28453,7 @@ void Game::ComposeFrame()
 				poos[i].Draw(gfx);	
 		}
 
+		gfx.DrawCircle(200, 200, 100, Colors::Blue);
+
 	}
 }

@@ -307,6 +307,22 @@ void Graphics::BeginFrame()
 	memset( pSysBuffer,0u,sizeof( Color ) * Graphics::ScreenHeight * Graphics::ScreenWidth );
 }
 
+void Graphics::DrawCircle(int x, int y, int r, Color c)
+{
+	const int r_sq = r * r;
+	for (int i = y - r; i <= y + r; i++)
+	{
+		for (int j = x - r; j <= x + r; j++)
+		{
+			const int d_sq = ((x - j) * (x - j)) + ((y - i) * (y - i));
+			if (d_sq <= r_sq)
+			{
+				PutPixel(i, j, c);
+			}
+		}
+	}
+}
+
 void Graphics::PutPixel( int x,int y,Color c )
 {
 	assert( x >= 0 );
