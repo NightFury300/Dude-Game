@@ -29,7 +29,7 @@ Game::Game( MainWindow& wnd )
 	rng( rd() ),
 	xDistPoo( 0,770 ),
 	yDistPoo( 0,570 ),
-	vDistPoo(-1,1),
+	vDistPoo(-2.5f,2.5f),
 	xDistGoal(0,770),
 	yDistGoal(0,570),
 	meter(5,5)

@@ -51,9 +51,9 @@ private:
 	/*  User Variables              */
 	std::random_device rd;
 	std::mt19937 rng;
-	std::uniform_int_distribution<int> xDistPoo;
-	std::uniform_int_distribution<int> yDistPoo;
-	std::uniform_int_distribution<int> vDistPoo;
+	std::uniform_real_distribution<float> xDistPoo;
+	std::uniform_real_distribution<float> yDistPoo;
+	std::uniform_real_distribution<float> vDistPoo;
 	std::uniform_int_distribution<int> xDistGoal;
 	std::uniform_int_distribution<int> yDistGoal;
 	Dude dude;

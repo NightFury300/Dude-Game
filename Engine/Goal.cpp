@@ -40,8 +40,8 @@ void Goal::Update(int new_x , int new_y)
 
 void Goal::ProcessConsumption(const Dude& dude)
 {
-	const int duderight = dude.GetX() + dude.GetWidth();
-	const int dudebottom = dude.GetY() + dude.GetHeight();
+	const float duderight = dude.GetX() + dude.GetWidth();
+	const float dudebottom = dude.GetY() + dude.GetHeight();
 	const int goalright = x + width;
 	const int goalbottom = y + height;
 
