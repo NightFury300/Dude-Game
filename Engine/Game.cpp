@@ -29,7 +29,7 @@ Game::Game( MainWindow& wnd )
 	rng( rd() ),
 	xDistPoo( 0,770 ),
 	yDistPoo( 0,570 ),
-	vDistPoo(-2.5f,2.5f),
+	vDistPoo(-2.5f * 60.0f,2.5f * 60.0f),
 	xDistGoal(0,770),
 	yDistGoal(0,570),
 	meter(5,5)
@@ -50,10 +50,11 @@ void Game::Go()
 
 void Game::UpdateModel()
 {	
+	const float dt = ft.Mark();
 	goal.Glow();
 	if( isStarted && !hitPoo )
 	{
-		dude.Update( wnd.kbd );
+		dude.Update( wnd.kbd, dt );
 		dude.ClampToScreen();
 
 		
@@ -67,7 +68,7 @@ void Game::UpdateModel()
 
 		for (int i = 0; i < nPoo; i++)
 		{
-			poos[i].Update();
+			poos[i].Update(dt);
 			poos[i].ProcessConsumption(dude);
 		}
 		meter.Draw(gfx);
@@ -28452,8 +28453,6 @@ void Game::ComposeFrame()
 		{
 				poos[i].Draw(gfx);	
 		}
-
-		gfx.DrawCircle(200, 200, 100, Colors::Blue);
 
 	}
 }

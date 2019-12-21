@@ -27,6 +27,7 @@
 #include "Dude.h"
 #include "Goal.h"
 #include "ScoreMeter.h"
+#include "FrameTimer.h"
 #include <random>
 
 class Game
@@ -59,6 +60,7 @@ private:
 	Dude dude;
 	Goal goal;
 	ScoreMeter meter;
+	FrameTimer ft;
 	static constexpr int nPoo = 10;
 	Poo poos[nPoo];
 	bool isStarted = false;

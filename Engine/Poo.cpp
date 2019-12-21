@@ -11,11 +11,11 @@ void Poo::Init(float in_x, float in_y, float in_vx, float in_vy)
 	vy = in_vy;
 	Initialized = true;
 }
-void Poo::Update()
+void Poo::Update(float dt)
 {
 	assert(Initialized == true);
-	x += vx;
-	y += vy;
+	x += vx * dt;
+	y += vy * dt;
 
 	const float right = x + width;
 	if( x < 0 )
