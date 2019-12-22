@@ -54,7 +54,7 @@ void Game::UpdateModel()
 	goal.Glow();
 	if( isStarted && !hitPoo )
 	{
-		dude.Update( wnd.kbd, dt );
+		dude.Update( wnd.mouse, dt );
 		dude.ClampToScreen();
 
 		
