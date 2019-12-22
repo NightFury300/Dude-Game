@@ -1,6 +1,7 @@
 #pragma once
 #include "Graphics.h"
 #include "Dude.h"
+#include "Vec2.h"
 
 class Goal
 {
@@ -8,11 +9,10 @@ public:
 	void Draw(Graphics& gfx) const;
 	bool IsEaten() const;
 	void Glow();
-	void Update(int new_x,int new_y);
+	void Update(const Vec2& new_pos);
 	void ProcessConsumption(const Dude& dude);
 private:
-	int x = 200;
-	int y = 200;
+	Vec2 pos = Vec2(200.0f, 200.0f);
 	int r = 255;
 	int g = 0;
 	int b = 0;

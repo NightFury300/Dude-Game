@@ -7,7 +7,7 @@ void Goal::Draw(Graphics & gfx) const
 	{
 		for (int j = 0; j < height; j++)
 		{
-			gfx.PutPixel(x+i, y+j, r, g, b);
+			gfx.PutPixel((int)pos.x+i, (int)pos.y+j, r, g, b);
 		}
 	}
 }
@@ -31,24 +31,23 @@ void Goal::Glow()
 	}
 }
 
-void Goal::Update(int new_x , int new_y)
+void Goal::Update(const Vec2& new_pos)
 {
-		x = new_x;
-		y = new_y;
-		isEaten = false;
+	pos = new_pos;
+	isEaten = false;
 }
 
 void Goal::ProcessConsumption(const Dude& dude)
 {
-	const float duderight = dude.GetX() + dude.GetWidth();
-	const float dudebottom = dude.GetY() + dude.GetHeight();
-	const int goalright = x + width;
-	const int goalbottom = y + height;
+	const float duderight = dude.GetPos().x + dude.GetWidth();
+	const float dudebottom = dude.GetPos().y + dude.GetHeight();
+	const float goalright = pos.x + width;
+	const float goalbottom = pos. y + height;
 
-	if (dude.GetX() <= goalright &&
-		duderight >= x &&
-		dude.GetY() <= goalbottom &&
-		dudebottom >= y)
+	if (dude.GetPos().x <= goalright &&
+		duderight >= pos.x &&
+		dude.GetPos().y <= goalbottom &&
+		dudebottom >= pos.y)
 	{
 		isEaten = true;
 	}

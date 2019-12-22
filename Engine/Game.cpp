@@ -36,7 +36,7 @@ Game::Game( MainWindow& wnd )
 {
 	for (int i = 0; i < nPoo; i++)
 	{
-		poos[i].Init(xDistPoo(rng), yDistPoo(rng), vDistPoo(rng), vDistPoo(rng));
+		poos[i].Init(Vec2(xDistPoo(rng), yDistPoo(rng)), Vec2(vDistPoo(rng), vDistPoo(rng)));
 	}
 }
 
@@ -61,7 +61,7 @@ void Game::UpdateModel()
 		if (goal.IsEaten())
 		{	
 			meter.IncreaseScore();
-			goal.Update(xDistGoal(rng), yDistGoal(rng));
+			goal.Update(Vec2(float(xDistGoal(rng)), float(yDistGoal(rng))));
 			goal.Draw(gfx);
 		}
 		goal.ProcessConsumption(dude);
